@@ -1,0 +1,7 @@
+<div *ngIf="hero">
+    <p>{{ hero.summary }}</p>
+    <button
+        (click)="onDelete(hero)" class="btn btn-danger">
+        Delete
+    </button>    
+</div>

@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="col-12">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <select [(ngModel)]="filterKey" class="form-control">
+                        <option value="">any</option>
+                        <option *ngFor="let col of cols" [value]="col.key">
+                            {{ col.title }}
+                        </option>
+                    </select>
+                </div>
+                <input [(ngModel)]="phrase" type="text" class="form-control">
+            </div>
+    </div>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th *ngFor="let col of cols">
+                {{ col.title }}
+            </th>
+            <th>actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr
+            title="{{ hero.summary }}" 
+            *ngFor="let hero of list | arrayFilter:phrase:filterKey">
+                <td *ngFor="let col of cols">
+                    {{ hero[col.key] }}
+                </td>
+                <td>
+                    <button 
+                        (click)="selectHero(hero)"
+                        class="btn btn-info">
+                        show
+                    </button>
+                </td>
+        </tr>
+    </tbody>
+</table>
+<app-hero-detail
+    [hero]="selectedHero" 
+    (deleteHero)="removeHero($event)">
+</app-hero-detail>
