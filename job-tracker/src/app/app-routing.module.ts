@@ -4,6 +4,7 @@ import { IndexComponent } from './pages/index/index.component';
 import { EmployeesComponent } from './pages/employees/employees.component';
 import { DepartmentsComponent } from './pages/departments/departments.component';
 import { LoginComponent } from './pages/login/login.component';
+import { EmployeeDetailComponent } from './pages/employee-detail/employee-detail.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,10 @@ const routes: Routes = [
   {
     path: 'employees',
     component: EmployeesComponent
+  },
+  {
+    path: 'employee/:id',
+    component: EmployeeDetailComponent
   },
   {
     path: 'departments',

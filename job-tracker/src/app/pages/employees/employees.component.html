@@ -1,1 +1,26 @@
-<p>employees works!</p>
+<div class="row">
+    <div class="col-12">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th *ngFor="let col of cols">
+                        {{ col.title }}
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let row of list">
+                    <td *ngFor="let col of cols">
+                        {{ row[col.key] }}
+                    </td>
+                    <td>
+                        <a [routerLink]="'/employee/'+row.id" class="btn btn-info">
+                            show
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
