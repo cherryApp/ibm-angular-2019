@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { Employee } from 'src/app/model/employee';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { tap, filter, map } from 'rxjs/operators';
 import { ConfigService } from 'src/app/services/config.service';
 
@@ -13,11 +13,7 @@ import { ConfigService } from 'src/app/services/config.service';
 export class EmployeesComponent implements OnInit {
 
   list: Employee[] = [];
-  $list: Observable<Employee[]> = this.employeeService.getAll().pipe(
-    map( employees => {
-      return employees.filter( emp => emp.id > 100 );
-    } )
-  );
+  $list: BehaviorSubject<Employee[]> = this.employeeService.$list;
 
   cols: {key: string, title: string}[] = [];
 
@@ -29,10 +25,15 @@ export class EmployeesComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.employeeService.getAll().toPromise().then();
     /* this.employeeService.getAll().toPromise().then(
       employees => this.list = employees,
       err => console.error(err)
     ); */
+  }
+
+  onDelete(employee: Employee): void {
+    this.employeeService.delete(employee);
   }
 
 }

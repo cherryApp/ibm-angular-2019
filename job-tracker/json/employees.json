@@ -11,26 +11,6 @@
       "jobTitle": "Human Resources Assistant III"
     },
     {
-      "id": 2,
-      "firstName": "Essie",
-      "lastName": "Kohneke",
-      "email": "ekohneke1@amazonaws.com",
-      "gender": "Female",
-      "ipAddress": "198.92.192.72",
-      "company": "Aivee",
-      "jobTitle": "Budget/Accounting Analyst I"
-    },
-    {
-      "id": 3,
-      "firstName": "Gretel",
-      "lastName": "Ferber",
-      "email": "gferber2@techcrunch.com",
-      "gender": "Female",
-      "ipAddress": "248.177.231.40",
-      "company": "Fiveclub",
-      "jobTitle": "Web Designer I"
-    },
-    {
       "id": 4,
       "firstName": "Prue",
       "lastName": "Condy",
@@ -51,16 +31,6 @@
       "jobTitle": "Environmental Specialist"
     },
     {
-      "id": 6,
-      "firstName": "Jeremie",
-      "lastName": "Lovelock",
-      "email": "jlovelock5@cnet.com",
-      "gender": "Male",
-      "ipAddress": "131.126.224.90",
-      "company": "Brainlounge",
-      "jobTitle": "Recruiter"
-    },
-    {
       "id": 7,
       "firstName": "Trudey",
       "lastName": "Hughesdon",
@@ -69,16 +39,6 @@
       "ipAddress": "223.123.88.254",
       "company": "Babblestorm",
       "jobTitle": "Internal Auditor"
-    },
-    {
-      "id": 8,
-      "firstName": "Dorthy",
-      "lastName": "Gwinnell",
-      "email": "dgwinnell7@house.gov",
-      "gender": "Female",
-      "ipAddress": "98.156.9.244",
-      "company": "Oyonder",
-      "jobTitle": "Account Representative III"
     },
     {
       "id": 9,

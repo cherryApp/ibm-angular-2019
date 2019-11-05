@@ -15,9 +15,15 @@
                         {{ row[col.key] }}
                     </td>
                     <td>
-                        <a [routerLink]="'/employee/'+row.id" class="btn btn-info">
-                            show
-                        </a>
+                        <div class="btn-group">
+                            <a [routerLink]="'/employee/'+row.id" class="btn btn-info">
+                                show
+                            </a>
+                            <button (click)="onDelete(row)" class="btn btn-danger">
+                                del
+                            </button>
+
+                        </div>
                     </td>
                 </tr>
             </tbody>

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,9 @@ export abstract class BaseService<T> {
   }
 
   getAll(): Observable<T[]> {
-    return this.http.get<T[]>(`${this.apiUrl}/${this.entity}`);
+    return this.http.get<T[]>(`${this.apiUrl}/${this.entity}`).pipe(
+      tap( data => this.$list.next(data) )
+    );
   }
 
   get(id: number | string): Observable<T> {
@@ -28,6 +31,12 @@ export abstract class BaseService<T> {
     return this.http.put<T>(
       `${this.apiUrl}/${this.entity}/${data.id}`,
       data
+    );
+  }
+
+  delete(data: any): void {
+    this.http.delete(`${this.apiUrl}/${this.entity}/${data.id}`).forEach(
+      response => this.getAll().toPromise().then()
     );
   }
 }
