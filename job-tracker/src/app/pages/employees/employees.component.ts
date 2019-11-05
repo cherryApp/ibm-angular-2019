@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { Employee } from 'src/app/model/employee';
+import { Observable } from 'rxjs';
+import { tap, filter, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-employees',
@@ -10,6 +12,11 @@ import { Employee } from 'src/app/model/employee';
 export class EmployeesComponent implements OnInit {
 
   list: Employee[] = [];
+  $list: Observable<Employee[]> = this.employeeService.getAll().pipe(
+    map( employees => {
+      return employees.filter( emp => emp.id > 100 );
+    } )
+  );
 
   cols: {key: string, title: string}[] = [];
 
@@ -31,10 +38,10 @@ export class EmployeesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.employeeService.getAll().toPromise().then(
+    /* this.employeeService.getAll().toPromise().then(
       employees => this.list = employees,
       err => console.error(err)
-    );
+    ); */
   }
 
 }
