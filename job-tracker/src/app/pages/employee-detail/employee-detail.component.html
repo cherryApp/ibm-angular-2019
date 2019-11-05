@@ -1,1 +1,9 @@
-{{ $employee | async | json }}
+<form #myForm="ngForm" action="">
+    <div [hidden]="field.key === 'id'" *ngFor="let field of $employee | async | keyvalue" class="form-group">
+        <label for="">{{ field.key | titlecase }}</label>
+        <input [name]="field.key" [(ngModel)]="field.value" type="text" class="form-control">
+    </div>
+    <button type="button" (click)="onSubmit(myForm)" class="btn btn-primary">
+        Update
+    </button>
+</form>
