@@ -3,6 +3,7 @@ import { EmployeeService } from 'src/app/services/employee.service';
 import { Employee } from 'src/app/model/employee';
 import { Observable } from 'rxjs';
 import { tap, filter, map } from 'rxjs/operators';
+import { ConfigService } from 'src/app/services/config.service';
 
 @Component({
   selector: 'app-employees',
@@ -21,20 +22,10 @@ export class EmployeesComponent implements OnInit {
   cols: {key: string, title: string}[] = [];
 
   constructor(
-    private employeeService: EmployeeService
+    private employeeService: EmployeeService,
+    private config: ConfigService
   ) {
-    const mockEmployee: Employee = new Employee();
-    const colLIst = [];
-    for (const k in mockEmployee) {
-      if (k) {
-        colLIst.push({key: k, title: this.toTitleCase(k)});
-      }
-    }
-    this.cols = colLIst;
-  }
-
-  toTitleCase(str: string): string {
-    return str.slice(0, 1).toUpperCase() + str.slice(1).toLowerCase();
+    this.cols = this.config.generateColsFromClass(Employee);
   }
 
   ngOnInit() {
