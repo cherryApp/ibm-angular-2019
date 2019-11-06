@@ -5,6 +5,11 @@ import { Injectable } from '@angular/core';
 })
 export class ConfigService {
 
+  employeeValidations: any = {
+    firstName: '^([a-űA-Ű]+[\.]?[a-űA-Ű]+){2,20}$',
+    lastName: '^[a-zA-Z \.\-]{5,20}$',
+  };
+
   constructor() { }
 
   generateColsFromClass(baseClass: any) {

@@ -13,6 +13,7 @@ export class EmployeeCreateComponent implements OnInit {
 
   employee: Employee = new Employee();
   cols: any;
+  validators: any;
 
   constructor(
     private employeeService: EmployeeService,
@@ -22,6 +23,7 @@ export class EmployeeCreateComponent implements OnInit {
 
   ngOnInit() {
     this.cols = this.config.generateColsFromClass(Employee);
+    this.validators = this.config.employeeValidations;
   }
 
   onCreate(employee: Employee): void {
