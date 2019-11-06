@@ -11,6 +11,7 @@ import { EmployeesComponent } from './pages/employees/employees.component';
 import { DepartmentsComponent } from './pages/departments/departments.component';
 import { LoginComponent } from './pages/login/login.component';
 import { EmployeeDetailComponent } from './pages/employee-detail/employee-detail.component';
+import { EmployeeCreateComponent } from './pages/employee-create/employee-create.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { EmployeeDetailComponent } from './pages/employee-detail/employee-detail
     EmployeesComponent,
     DepartmentsComponent,
     LoginComponent,
-    EmployeeDetailComponent
+    EmployeeDetailComponent,
+    EmployeeCreateComponent
   ],
   imports: [
     BrowserModule,

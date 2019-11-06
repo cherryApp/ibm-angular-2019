@@ -39,4 +39,11 @@ export abstract class BaseService<T> {
       response => this.getAll().toPromise().then()
     );
   }
+
+  create(data: any): Observable<T> {
+    return this.http.post<T>(
+      `${this.apiUrl}/${this.entity}`,
+      data
+    );
+  }
 }
