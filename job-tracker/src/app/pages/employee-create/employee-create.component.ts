@@ -25,6 +25,9 @@ export class EmployeeCreateComponent implements OnInit {
   }
 
   onCreate(employee: Employee): void {
+    if (!confirm('Biztos leállítod a teljes IBM felhőt?')) {
+      return;
+    }
     employee.id = 0;
     this.employeeService.create(employee).toPromise().then(
       response => this.router.navigateByUrl('/employees'),
