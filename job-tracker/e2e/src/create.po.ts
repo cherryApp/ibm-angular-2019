@@ -8,6 +8,10 @@ export class CreatePage {
   getFormField(fieldName: string) {
     return element(by.css(`form [ng-reflect-name=${fieldName}]`));
   }
+  
+  getFieldAlert(fieldName: string) {
+    return element(by.css(`form [ng-reflect-name=${fieldName}] + .alert`));
+  }
 
   async fillField(fieldName: string, content: string): Promise<ElementFinder> {
     const field = this.getFormField(fieldName);
@@ -23,7 +27,7 @@ export class CreatePage {
 
   async checkFieldAlert(fieldName: string, content: string, nth: number): Promise<boolean> {
     const field = await this.fillField(fieldName, content);
-    return this.checkAlertShown(nth);
+    return this.getFieldAlert(fieldName).isDisplayed();
   }
 
   async testBadAndRightValues(fieldName: string, contents: [string, string], nth: number) {
