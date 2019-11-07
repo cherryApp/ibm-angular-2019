@@ -25,4 +25,23 @@ export class CreatePage {
     const field = await this.fillField(fieldName, content);
     return this.checkAlertShown(nth);
   }
+
+  async testBadAndRightValues(fieldName: string, contents: [string, string], nth: number) {
+    const badTest = await this.checkFieldAlert(fieldName, contents[0], nth);
+    await browser.sleep(500);
+    const rightTest = await this.checkFieldAlert(fieldName, contents[1], nth);
+    await browser.sleep(500);
+    return [badTest, rightTest];
+  }
+
+  async testRequiredField(fieldName: string, nth: number) {
+    const field = this.getFormField(fieldName);
+    await field.sendKeys('a');
+    await field.sendKeys(Key.BACK_SPACE);
+    const badTest = await this.checkFieldAlert(fieldName, '', nth);
+    await browser.sleep(500);
+    const rightTest = await this.checkFieldAlert(fieldName, 'a', nth);
+    await browser.sleep(500);
+    return [badTest, rightTest];
+  }
 }
