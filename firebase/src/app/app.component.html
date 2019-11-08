@@ -1,6 +1,6 @@
 <div>
   <button (click)="onLogin()" *ngIf="!user">login</button>
-  <button *ngIf="user">logout</button>
+  <button (click)="onLogout()" *ngIf="user">logout</button>
 </div>
 
 <table>
