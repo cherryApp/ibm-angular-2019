@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { DynamicFormModule } from './dynamic-form/dynamic-form.module';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './common/nav/nav.component';
@@ -12,8 +14,6 @@ import { DepartmentsComponent } from './pages/departments/departments.component'
 import { LoginComponent } from './pages/login/login.component';
 import { EmployeeDetailComponent } from './pages/employee-detail/employee-detail.component';
 import { EmployeeCreateComponent } from './pages/employee-create/employee-create.component';
-import { DynamicFormControlComponent } from './formModule/dynamic-form-control/dynamic-form-control.component';
-import { FormComponent } from './formModule/form/form.component';
 
 @NgModule({
   declarations: [
@@ -25,8 +25,6 @@ import { FormComponent } from './formModule/form/form.component';
     LoginComponent,
     EmployeeDetailComponent,
     EmployeeCreateComponent,
-    DynamicFormControlComponent,
-    FormComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +32,7 @@ import { FormComponent } from './formModule/form/form.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    DynamicFormModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

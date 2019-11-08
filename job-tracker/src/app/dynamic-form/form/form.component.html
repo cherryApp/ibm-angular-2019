@@ -1,0 +1,9 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
+    <app-dynamic-form-control
+        *ngFor="let field of fields" 
+        [form]="form" 
+        [field]="field">
+    </app-dynamic-form-control>
+
+    <button type="submit" [disabled]="!form.valid" class="btn btn-primary">send</button>
+</form>

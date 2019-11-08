@@ -1,0 +1,31 @@
+<div [formGroup]="form" class="form-group">
+    <label>{{ field.label }}</label>
+    <div [ngSwitch]="field.controlType">
+        <input 
+            *ngSwitchCase="'input'" 
+            [type]="field['type']" 
+            [formControlName]="field.key" 
+            class="form-control">
+
+        <select 
+            *ngSwitchCase="'select'" 
+            [formControlName]="field.key" 
+            class="form-control">
+                <option selected value="">select {{ field.key }}</option>
+                <option 
+                    *ngFor="let o of field['options']" 
+                    [value]="o.value">
+                        {{ o.title }}
+                </option>
+        </select>
+
+        <textarea
+            *ngSwitchCase="'textarea'" 
+            [formControlName]="field.key" 
+            class="form-control">
+        </textarea>
+    </div>
+    <div [hidden]="isValid" class="alert alert-danger">
+        this value is invalid
+    </div>
+</div>
