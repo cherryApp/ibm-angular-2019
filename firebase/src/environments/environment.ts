@@ -5,13 +5,13 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: '...',
-    authDomain: '...',
-    databaseURL: '...',
-    projectId: '...',
-    storageBucket: '...',
-    messagingSenderId: '...',
-    appId: '...',
+    apiKey: 'AIzaSyAXwMkntK-T1ZMZAO_RilDW2NHltpJqAV8',
+    authDomain: 'faith-project-a4c52.firebaseapp.com',
+    databaseURL: 'https://faith-project-a4c52.firebaseio.com',
+    projectId: 'faith-project-a4c52',
+    storageBucket: 'faith-project-a4c52.appspot.com',
+    messagingSenderId: '166105862575',
+    appId: '1:166105862575:web:8bbb6420a14dab94b31f5a'
   }
 };
 
